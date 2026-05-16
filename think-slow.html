@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>KALLA KALI</title>
 
@@ -17,14 +17,16 @@
 }
 
 body{
-  font-family:'Poppins',sans-serif;
   background: radial-gradient(circle at bottom right, #ffd166 0%, #0f1724 70%);
-  height:100vh;
-  overflow:hidden;
+  font-family:'Poppins', sans-serif;
+  color:#fff;
   display:flex;
+  flex-direction:column;
   align-items:center;
   justify-content:center;
-  color:white;
+  height:100vh;
+  text-align:center;
+  overflow:hidden;
   position:relative;
 }
 
@@ -38,54 +40,48 @@ body{
   height:100%;
   top:0;
   left:0;
+  z-index:0;
   overflow:hidden;
-  z-index:1;
 }
 
 .float{
   position:absolute;
-  width:220px;
-  height:220px;
+  width:200px;
+  height:200px;
   object-fit:cover;
   border-radius:25px;
-  opacity:0.25;
-  box-shadow:0 10px 30px rgba(0,0,0,0.4);
-  animation:floatAnimation ease-in-out infinite;
+  opacity:0.28;
+  box-shadow:0 10px 25px rgba(0,0,0,0.4);
+  animation:floatAnimation infinite ease-in-out;
 }
 
-/* Individual image positions */
+/* PHOTO POSITIONS */
 
 .img1{
   top:5%;
   left:5%;
-  animation-duration:15s;
+  animation-duration:16s;
 }
 
 .img2{
-  top:15%;
-  right:5%;
-  animation-duration:18s;
+  top:10%;
+  right:8%;
+  animation-duration:20s;
 }
 
 .img3{
-  bottom:10%;
+  bottom:12%;
   left:10%;
-  animation-duration:20s;
+  animation-duration:18s;
 }
 
 .img4{
   bottom:8%;
-  right:10%;
-  animation-duration:17s;
-}
-
-.img5{
-  top:40%;
-  left:40%;
+  right:12%;
   animation-duration:22s;
 }
 
-/* Floating movement */
+/* FLOATING EFFECT */
 
 @keyframes floatAnimation{
 
@@ -94,11 +90,11 @@ body{
   }
 
   25%{
-    transform:translateY(-25px) translateX(15px) rotate(3deg);
+    transform:translateY(-20px) translateX(15px) rotate(3deg);
   }
 
   50%{
-    transform:translateY(20px) translateX(-20px) rotate(-3deg);
+    transform:translateY(20px) translateX(-15px) rotate(-3deg);
   }
 
   75%{
@@ -111,71 +107,57 @@ body{
 }
 
 /* =========================
-   MAIN CONTENT
+   CONTENT
 ========================= */
 
 .container{
   position:relative;
   z-index:2;
-  text-align:center;
-  padding:20px;
 }
 
 h1{
-  font-size:55px;
-  font-weight:800;
-  margin-bottom:25px;
-  text-shadow:0 5px 15px rgba(0,0,0,0.4);
+  font-size:42px;
+  margin-bottom:20px;
+  text-shadow:0 5px 15px rgba(0,0,0,0.5);
 }
 
 p{
-  font-size:22px;
-  margin-bottom:30px;
-  color:#f1f1f1;
+  margin-bottom:20px;
+  font-size:20px;
 }
 
-/* Buttons */
-
-.buttons{
-  position:relative;
-  display:flex;
-  justify-content:center;
-  gap:20px;
-  margin-top:20px;
-}
+/* BUTTONS */
 
 button{
   padding:15px 35px;
+  margin:10px;
   border:none;
-  border-radius:14px;
-  font-size:22px;
+  border-radius:12px;
+  font-size:20px;
   cursor:pointer;
-  transition:0.3s ease;
+  transition:all 0.3s ease;
   font-weight:600;
 }
 
 .yes{
-  background:#ff6b81;
+  background-color:#ff6b81;
   color:white;
   box-shadow:0 5px 15px rgba(255,107,129,0.5);
 }
 
 .yes:hover{
   transform:scale(1.08);
-  background:#ff4f6d;
 }
 
 .no{
-  background:rgba(255,255,255,0.12);
+  background-color:rgba(255,255,255,0.1);
   color:white;
   position:absolute;
-  left:180px;
   backdrop-filter:blur(5px);
 }
 
 footer{
-  margin-top:50px;
-  font-size:18px;
+  margin-top:40px;
   opacity:0.8;
 }
 
@@ -188,13 +170,12 @@ footer{
 
 <div class="floating-images">
 
-  <!-- Replace image names with your own -->
+  <!-- Replace these with your own photos -->
 
-  <img src="img1.jpg" class="float img1">
-  <img src="img2.jpg" class="float img2">
-  <img src="img3.jpg" class="float img3">
-  <img src="img4.jpg" class="float img4">
-  <img src="img5.jpg" class="float img5">
+  <img src="photo1.jpg" class="float img1">
+  <img src="photo2.jpg" class="float img2">
+  <img src="photo3.jpg" class="float img3">
+  <img src="photo4.jpg" class="float img4">
 
 </div>
 
@@ -206,7 +187,7 @@ footer{
 
   <p>Onnude Aloikke....</p>
 
-  <div class="buttons">
+  <div>
 
     <button class="yes"
       onclick="window.location.href='yes.html'">
@@ -238,11 +219,11 @@ function randomPosition(){
   noBtn.style.top = `${y}px`;
 }
 
-/* Move NO button when mouse comes near */
+/* NO button runs away */
 
 noBtn.addEventListener("mouseover", randomPosition);
 
-/* If clicked */
+/* Redirect if clicked */
 
 noBtn.addEventListener("click", () => {
   window.location.href='think-slow.html';
