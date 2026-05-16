@@ -3,9 +3,19 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>KALLA KALI</title>
+
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
+
 <style>
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
 body{
   background: radial-gradient(circle at bottom right, #ffd166 0%, #0f1724 70%);
   font-family: 'Poppins', sans-serif;
@@ -17,52 +27,202 @@ body{
   height: 100vh;
   text-align: center;
   overflow: hidden;
+  position: relative;
 }
-h1{font-size: 42px;}
+
+/* =========================
+   FLOATING IMAGES
+========================= */
+
+.floating-images{
+  position:absolute;
+  width:100%;
+  height:100%;
+  top:0;
+  left:0;
+  z-index:0;
+}
+
+.float{
+  position:absolute;
+  width:180px;
+  height:180px;
+  object-fit:cover;
+  border-radius:25px;
+  opacity:0.28;
+  box-shadow:0 10px 25px rgba(0,0,0,0.4);
+  animation: floatAnimation infinite ease-in-out;
+}
+
+/* IMAGE POSITIONS */
+
+.img1{
+  top:5%;
+  left:5%;
+  animation-duration:16s;
+}
+
+.img2{
+  top:10%;
+  right:8%;
+  animation-duration:20s;
+}
+
+.img3{
+  bottom:10%;
+  left:10%;
+  animation-duration:18s;
+}
+
+.img4{
+  bottom:8%;
+  right:12%;
+  animation-duration:22s;
+}
+
+/* FLOATING ANIMATION */
+
+@keyframes floatAnimation{
+
+  0%{
+    transform:translateY(0px) translateX(0px) rotate(0deg);
+  }
+
+  25%{
+    transform:translateY(-20px) translateX(15px) rotate(3deg);
+  }
+
+  50%{
+    transform:translateY(20px) translateX(-15px) rotate(-3deg);
+  }
+
+  75%{
+    transform:translateY(-10px) translateX(10px) rotate(2deg);
+  }
+
+  100%{
+    transform:translateY(0px) translateX(0px) rotate(0deg);
+  }
+}
+
+/* =========================
+   CONTENT
+========================= */
+
+.container{
+  position:relative;
+  z-index:2;
+}
+
+h1{
+  font-size:42px;
+  margin-bottom:20px;
+}
+
+p{
+  margin-bottom:20px;
+  font-size:20px;
+}
+
 button{
-  padding: 15px 35px;
-  margin: 10px;
-  border: none;
-  border-radius: 10px;
-  font-size: 20px;
-  cursor: pointer;
-  transition: all 0.3s ease;
+  padding:15px 35px;
+  margin:10px;
+  border:none;
+  border-radius:10px;
+  font-size:20px;
+  cursor:pointer;
+  transition:all 0.3s ease;
+  font-weight:600;
 }
-.yes{background-color: #ff6b81; color: white;}
+
+.yes{
+  background-color:#ff6b81;
+  color:white;
+}
+
+.yes:hover{
+  transform:scale(1.08);
+}
+
 .no{
-  background-color: rgba(255,255,255,0.1);
-  color: white;
-  position: absolute;
+  background-color:rgba(255,255,255,0.1);
+  color:white;
+  position:absolute;
+  backdrop-filter:blur(5px);
 }
+
+footer{
+  margin-top:40px;
+  opacity:0.8;
+}
+
 </style>
 </head>
-<body>
-  <h1>Ayy Ntha Nee No Koduthe . Kalla Kali aahne ithe</h1>
-  <p>Onnude Aloikke....</p>
-  <div>
-   
 
-    <button class="yes" onclick="window.location.href='yes.html'">YES </button>
-    <button class="no" id="noBtn">NO</button>
+<body>
+
+<!-- FLOATING IMAGES -->
+
+<div class="floating-images">
+
+  <img src="img1.jpg" class="float img1">
+  <img src="img2.jpg" class="float img2">
+  <img src="img3.jpg" class="float img3">
+  <img src="img4.jpg" class="float img4">
+
+</div>
+
+<!-- MAIN CONTENT -->
+
+<div class="container">
+
+  <h1>Ayy Ntha Nee No Koduthe . Kalla Kali aahne ithe</h1>
+
+  <p>Onnude Aloikke....</p>
+
+  <div>
+
+    <button class="yes"
+      onclick="window.location.href='yes.html'">
+      YES
+    </button>
+
+    <button class="no" id="noBtn">
+      NO
+    </button>
+
   </div>
-   <footer>
-  <p>© SHARUUUUUHH</p>
-</footer>
+
+  <footer>
+    <p>© SHARUUUUUHH</p>
+  </footer>
+
+</div>
 
 <script>
+
 const noBtn = document.getElementById("noBtn");
-function randomPosition() {
-  const x = Math.random() * (window.innerWidth - 100);
-  const y = Math.random() * (window.innerHeight - 60);
+
+function randomPosition(){
+
+  const x = Math.random() * (window.innerWidth - 120);
+  const y = Math.random() * (window.innerHeight - 80);
+
   noBtn.style.left = `${x}px`;
   noBtn.style.top = `${y}px`;
 }
 
-noBtn.addEventListener("click", ()=> window.location.href='think-slow.html');
+/* NO button runs away */
+
+noBtn.addEventListener("mouseover", randomPosition);
+
+/* Redirect if clicked */
+
+noBtn.addEventListener("click", () => {
+  window.location.href='think-slow.html';
+});
+
 </script>
-  
+
 </body>
 </html>
-
-
-
