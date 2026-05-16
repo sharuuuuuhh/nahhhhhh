@@ -147,8 +147,11 @@ button{
 .no{
   background-color:rgba(255,255,255,0.1);
   color:white;
-  position:absolute;
   backdrop-filter:blur(5px);
+}
+
+.no:hover{
+  transform:scale(1.08);
 }
 
 footer{
@@ -182,12 +185,17 @@ footer{
 
   <div>
 
+    <!-- YES BUTTON -->
+
     <button class="yes"
       onclick="window.location.href='yes.html'">
       YES
     </button>
 
-    <button class="no" id="noBtn">
+    <!-- NO BUTTON -->
+
+    <button class="no"
+      onclick="window.location.href='think-slow.html'">
       NO
     </button>
 
@@ -198,31 +206,6 @@ footer{
   </footer>
 
 </div>
-
-<script>
-
-const noBtn = document.getElementById("noBtn");
-
-function randomPosition(){
-
-  const x = Math.random() * (window.innerWidth - 120);
-  const y = Math.random() * (window.innerHeight - 80);
-
-  noBtn.style.left = `${x}px`;
-  noBtn.style.top = `${y}px`;
-}
-
-/* NO button runs away */
-
-noBtn.addEventListener("mouseover", randomPosition);
-
-/* Redirect if clicked */
-
-noBtn.addEventListener("click", () => {
-  window.location.href='think-slow.html';
-});
-
-</script>
 
 </body>
 </html>
