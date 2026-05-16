@@ -187,10 +187,14 @@ footer{
 
   <div>
 
+    <!-- YES BUTTON -->
+
     <button class="yes"
       onclick="window.location.href='yes.html'">
       YES
     </button>
+
+    <!-- NO BUTTON -->
 
     <button class="no" id="noBtn">
       NO
@@ -221,10 +225,10 @@ function randomPosition(){
 
 noBtn.addEventListener("mouseover", randomPosition);
 
-/* Redirect if clicked */
+/* Redirect NO to think-again.html */
 
 noBtn.addEventListener("click", () => {
-  window.location.href='think-slow.html';
+  window.location.href='think-again.html';
 });
 
 </script>
